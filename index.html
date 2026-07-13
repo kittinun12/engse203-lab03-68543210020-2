@@ -1,0 +1,49 @@
+<!-- TODO 1: สร้าง field displayName พร้อม label, input, hint และ error -->
+
+  <div class="field">
+          <label for="display-name">ชื่อที่ต้องการแสดง</label>
+          <input
+            id="display-name"
+            name="displayName"
+            type="text"
+            minlength="2"
+            placeholder="เช่น สมชาย ใจดี"
+            aria-describedby="displayName-hint displayName-error"
+            required />
+          <small id="displayName-hint" class="hint">อย่างน้อย 2 ตัวอักษร</small>
+          <small id="displayName-error" class="error"></small>
+        </div>
+
+
+<!-- TODO 2: สร้าง select ชื่อ learningRole →
+
+       <div class="field">
+          <label for="learning-role">บทบาทที่สนใจ</label>
+          <select id="learning-role" name="learningRole" aria-describedby="learningRole-error" required>
+            <option value="">-- เลือกบทบาท --</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Full-Stack Developer">Full-Stack Developer</option>
+            <option value="UX/UI Designer">UX/UI Designer</option>
+          </select>
+          <small id="learningRole-error" class="error"></small>
+        </div>
+
+
+<!-- TODO 3: สร้าง textarea ชื่อ learningGoal -->
+       <div class="field">
+          <label for="learning-goal">เป้าหมายการเรียนรู้</label>
+          <textarea
+            id="learning-goal"
+            name="learningGoal"
+            rows="5"
+            minlength="10"
+            placeholder="เช่น ต้องการสร้างเว็บที่ใช้งานได้จริงและรองรับมือถือ"
+            aria-describedby="learningGoal-hint learningGoal-error"
+            required></textarea>
+          <div class="field-meta">
+            <small id="learningGoal-hint" class="hint">อย่างน้อย 10 ตัวอักษร</small>
+            <small id="goal-count" class="counter" aria-live="polite">0 ตัวอักษร</small>
+          </div>
+          <small id="learningGoal-error" class="error"></small>
+</div>
