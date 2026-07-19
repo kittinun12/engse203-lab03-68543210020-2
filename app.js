@@ -12,15 +12,13 @@ function readForm() {
   return Object.fromEntries(new FormData(form).entries());
 }
 
-
 function renderPreview(data) {
-  // TODO 6: อัปเดต preview ทั้ง 3 ค่าโดยใช้ textContent
+  // TODO 6: อัปเดต preview ทั้ง 3 ค่าโดยใช้ textContent (ปรับข้อความให้ตรงตามโจทย์ของเพื่อน)
   preview.displayName.textContent = data.displayName.trim() || 'ยังไม่ระบุชื่อ';
-  preview.learningRole.textContent = data.learningRole || 'ยังไม่เลือกบทบาท';
-  preview.learningGoal.textContent = data.learningGoal.trim() || 'ยังไม่มีเป้าหมายการเรียนรู้';
+  preview.learningRole.textContent = data.learningRole || 'ยังไม่เลือกประเภท';
+  preview.learningGoal.textContent = data.learningGoal.trim() || 'ยังไม่มีรายละเอียด';
   goalCount.textContent = `${data.learningGoal.length} ตัวอักษร`;
 }
-
 
 function validate(data) {
   // TODO 7: ตรวจชื่อ >= 2, role ต้องเลือก, goal >= 10
@@ -41,7 +39,6 @@ function validate(data) {
   return errors;
 }
 
-
 function renderErrors(errors) {
   // TODO 8: แสดง error ใกล้ field และกำหนด aria-invalid
   for (const name of ['displayName', 'learningRole', 'learningGoal']) {
@@ -54,17 +51,14 @@ function renderErrors(errors) {
   }
 }
 
-
+// TODO 9: Read → Render (แก้ไข: เอา Event ลูปซ้อนออก)
 form.addEventListener('input', () => {
-  // TODO 9: Read → Render
-  form.addEventListener('input', () => {
-    const data = readForm();
-    renderPreview(data);
-  });
+  const data = readForm();
+  renderPreview(data);
 });
 
-
-fform.addEventListener('submit', (event) => {
+// แก้ไข: เปลี่ยน fform เป็น form ให้ถูกต้อง
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   // TODO 10: Read → Validate → Render errors/status
 
@@ -79,20 +73,18 @@ fform.addEventListener('submit', (event) => {
   }
 
   renderStatus('success', `พร้อมแล้ว ${data.displayName}! ข้อมูลผ่านการตรวจสอบ`);
-
 });
+
 function renderStatus(state, message) {
   status.dataset.state = state;
   status.textContent = message;
 }
 
-
-
 form.addEventListener('reset', () => {
-    queueMicrotask(() => {
-        // TODO 11: reset preview, errors และ status
-        renderErrors({});
-        renderPreview(readForm());
-        renderStatus('idle', 'เริ่มพิมพ์เพื่อทดลอง Event และ Live Preview');
-    });
+  queueMicrotask(() => {
+    // TODO 11: reset preview, errors และ status
+    renderErrors({});
+    renderPreview(readForm());
+    renderStatus('idle', 'เริ่มพิมพ์เพื่อทดลอง Event และ Live Preview');
+  });
 });
