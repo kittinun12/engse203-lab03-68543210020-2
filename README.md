@@ -30,8 +30,10 @@ https://kittinun12.github.io/engse203-lab03-68543210020-2/
   <img width="235" height="351" alt="Screenshot 2026-07-20 003656" src="https://github.com/user-attachments/assets/d3ae2599-46c1-4d9d-81d1-868ce42784dd" />
 
 
-## main.js
-  const form = document.querySelector('#profile-form');
+```markdown
+### 📄 app.js
+```javascript
+const form = document.querySelector('#profile-form');
 const status = document.querySelector('#form-status');
 const goalCount = document.querySelector('#goal-count');
 
@@ -120,5 +122,3 @@ form.addEventListener('reset', () => {
     renderStatus('idle', 'เริ่มพิมพ์เพื่อทดลอง Event และ Live Preview');
   });
 });
-
-
