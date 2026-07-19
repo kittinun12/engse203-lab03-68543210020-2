@@ -30,9 +30,8 @@ https://kittinun12.github.io/engse203-lab03-68543210020-2/
   <img width="235" height="351" alt="Screenshot 2026-07-20 003656" src="https://github.com/user-attachments/assets/d3ae2599-46c1-4d9d-81d1-868ce42784dd" />
 
 
-app.js
-
-const form = document.querySelector('#profile-form');
+## main.js
+  const form = document.querySelector('#profile-form');
 const status = document.querySelector('#form-status');
 const goalCount = document.querySelector('#goal-count');
 
@@ -47,7 +46,7 @@ function readForm() {
 }
 
 function renderPreview(data) {
-  // TODO 6: อัปเดต preview ทั้ง 3 ค่าโดยใช้ textContent (ปรับข้อความให้ตรงตามโจทย์ของเพื่อน)
+  // TODO 6: อัปเดต preview ทั้ง 3 ค่าโดยใช้ textContent
   preview.displayName.textContent = data.displayName.trim() || 'ยังไม่ระบุชื่อ';
   preview.learningRole.textContent = data.learningRole || 'ยังไม่เลือกประเภท';
   preview.learningGoal.textContent = data.learningGoal.trim() || 'ยังไม่มีรายละเอียด';
@@ -85,13 +84,12 @@ function renderErrors(errors) {
   }
 }
 
-// TODO 9: Read → Render (แก้ไข: เอา Event ลูปซ้อนออก)
+// TODO 9: Read → Render
 form.addEventListener('input', () => {
   const data = readForm();
   renderPreview(data);
 });
 
-// แก้ไข: เปลี่ยน fform เป็น form ให้ถูกต้อง
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   // TODO 10: Read → Validate → Render errors/status
@@ -122,3 +120,5 @@ form.addEventListener('reset', () => {
     renderStatus('idle', 'เริ่มพิมพ์เพื่อทดลอง Event และ Live Preview');
   });
 });
+
+
